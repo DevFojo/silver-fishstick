@@ -1,12 +1,12 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Workflow (2)
+name: Workflow (3)
 
 # Controls when the workflow will run
 on:
   workflow_run:
     workflows:
-    - Workflow (1)
+    - Workflow (2)
     types:
       - completed
 
@@ -26,9 +26,8 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
-        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        if: ${{ github.event.workflow_run.conclusion == 'failure' }}
         run: |
-          echo Running workflow2
+          echo Running workflow3
           echo Add other actions to build,
           echo test, and deploy your project.
-          exit 1
